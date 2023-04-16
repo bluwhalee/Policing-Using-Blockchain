@@ -14,7 +14,7 @@ const Header = () => {
   
   return (
     <header className="header">
-      <div className="header__title">My App</div>
+      <div className="header__title">PoliceChain</div>
       { localStorage.getItem('user')? 
       <button className="header__sign-out-btn" onClick={handleSignOut}>
         Sign Out
