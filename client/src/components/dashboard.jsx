@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import jwtDecode from 'jwt-decode';
-import OperaterDashboard from './Dashboards/operatorDash'
+import OperaterDashboard from './Dashboards/operatorDashboard/operatorDash'
 
 function Form() {
 

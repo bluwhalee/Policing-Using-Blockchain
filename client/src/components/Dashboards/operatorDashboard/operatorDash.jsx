@@ -1,6 +1,6 @@
 import React from 'react'
-import IconBox from '../miniComponents/box'
-import "../../styles/dashboard.css"
+import IconBox from '../../miniComponents/box'
+import "../../../styles/dashboard.css"
 
 const operatorDash = () => {
   return (

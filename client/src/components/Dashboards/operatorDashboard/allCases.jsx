@@ -1,8 +1,10 @@
 import React from "react";
-import FirTable from "../miniComponents/firTable";
+import FirTable from "../../miniComponents/firTable";
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 function App() {
-  const firList = [
+  const firList1 = [
     {
       status: "Open",
       name: "John Doe",
@@ -43,6 +45,21 @@ function App() {
       }
     
   ];
+  const [firList, setFIRList] = useState([]);
+
+  useEffect(() => {
+    const fetchFIRList = async () => {
+      try {
+        const response = await axios.get('http://localhost:1337/api/dashboard/operator/firs'); // Replace '/firs' with your API endpoint to fetch FIR data
+        setFIRList(response.data);
+      } catch (error) {
+        console.error('Failed to fetch FIR data', error);
+      }
+    };
+
+    fetchFIRList();
+  }, []);
+
 
   return (
     <div>

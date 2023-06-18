@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/Dashboards/stats.css';
+import '../../../styles/Dashboards/stats.css';
 
 const Statistics = () => {
   const numCases = 500;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import '../../styles/Dashboards/registerFIR.css';
+import '../../../styles/Dashboards/registerFIR.css';
+import axios from 'axios';
 
 const registerFIR = () => {
   const [name, setName] = useState('');
@@ -9,11 +10,37 @@ const registerFIR = () => {
   const [evidence, setEvidence] = useState(null);
   const [suspects, setSuspects] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // handle form submission logic here
-    console.log('Form submitted!');
-  }
+
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('cnic', cnic);
+    formData.append('locations', locations);
+    formData.append('details', details);
+    formData.append('evidence', evidence);
+    formData.append('suspects', suspects);
+
+    try {
+      await axios.post('http://localhost:1337/api/dashboard/operator/fir', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      // Handle success
+      console.log('FIR submitted successfully');
+      // Reset form fields
+      setName('');
+      setCnic('');
+      setLocations('');
+      setDetails('');
+      setEvidence(null);
+      setSuspects('');
+    } catch (error) {
+      // Handle error
+      console.error('Failed to submit FIR', error);
+    }
+  };
 
   const handleFileChange = (e) => {
     setEvidence(e.target.files[0]);

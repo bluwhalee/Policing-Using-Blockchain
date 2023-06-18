@@ -1,5 +1,5 @@
 import React from 'react';
-import CitizenTable from '../miniComponents/citizenTable';
+import CitizenTable from '../../miniComponents/citizenTable';
 
 const CitizenTableContainer = () => {
   const citizenList = [
