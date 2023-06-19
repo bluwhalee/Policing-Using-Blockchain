@@ -13,6 +13,7 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       const  response  = await axios.post('http://localhost:1337/api/login', { email, password });
+      console.log(response)
       const user = response.data.user
       if(user)
       {

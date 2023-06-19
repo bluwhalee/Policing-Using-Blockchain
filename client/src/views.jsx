@@ -8,6 +8,8 @@ import AllCases from './components/Dashboards/operatorDashboard/allCases'
 import AllCitizens from './components/Dashboards/operatorDashboard/allCitizens'
 import Stats from './components/Dashboards/operatorDashboard/stats'
 import ProtectedRoutes from './components/Protected/protect';
+import ProtectOprDash from './components/Protected/protectOprDash';
+import RegisterUser from './components/Dashboards/adminDashboard/registerUser';
 
 function App() {
 
@@ -17,10 +19,13 @@ function App() {
             <Route path="/login" element={<Login/>} />
             <Route element={<ProtectedRoutes/>}>
               <Route path="/Dashboard" element={<Dashboard/>} />
-              <Route path="/dashboard/registerfir" element={<Registerfir/>} />
-              <Route path="/dashboard/allcases" element={<AllCases />} />
-              <Route path="/dashboard/allcitizens" element={<AllCitizens />} />
-              <Route path="/dashboard/stats" element={<Stats />} />
+              <Route element={<ProtectOprDash/>}>
+                <Route path="/dashboard/registerfir" element={<Registerfir/>} />
+                <Route path="/dashboard/allcases" element={<AllCases />} />
+                <Route path="/dashboard/allcitizens" element={<AllCitizens />} />
+                <Route path="/dashboard/stats" element={<Stats />} />
+              </Route>
+                <Route path="/dashboard/registeruser" element={<RegisterUser />} />  
             </Route>
             <Route path="*" element={<Login/>} />
             <Route path="/" element={<Login/>} />

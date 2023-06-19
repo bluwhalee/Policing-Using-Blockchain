@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import jwtDecode from 'jwt-decode';
 import OperaterDashboard from './Dashboards/operatorDashboard/operatorDash'
+import AminDash from './Dashboards/adminDashboard/adminDash';
 
 function Form() {
 
@@ -10,6 +11,7 @@ function Form() {
   return (
     <div>
       {(userType==4) && <OperaterDashboard/>}
+      {(userType==1) && <AminDash/>}
     </div>
     
   );
